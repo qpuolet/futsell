@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			url,
 			xhrFields: {
 				withCredentials: true,
+                'Access-Control-Allow-Origin': 'https://qpuolet.github.io/',
 			},
 			success: (response) => {
 				onSuccess(response, params, frequency);
