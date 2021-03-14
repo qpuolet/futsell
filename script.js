@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			xhrFields: {
 				withCredentials: true,
                 'Access-Control-Allow-Origin': '*',
+				mode: 'cors',
+				credentials: 'include',
 			},
 			success: (response) => {
 				onSuccess(response, params, frequency);
