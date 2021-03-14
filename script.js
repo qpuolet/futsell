@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const logs = document.querySelector('#logs');
 	const logsCounter = logs.querySelector('.logs__requestsCounter');
 	const logsList = logs.querySelector('.logs__list');
-	var successSong = document.getElementById('myAudio');
+	const successSong = document.getElementById('successSong');
+	const errorSong = document.getElementById('errorSong');
 	let requestNumber = 0;
 	let errorCounter = 0;
 
@@ -60,9 +61,22 @@ document.addEventListener('DOMContentLoaded', function() {
 					sendRequest(params, frequency);
 				} else {
 					alert('Ahh... Something went wrong... Contact support!');
+					onErrorSong();
 				}
 			},
 		});
+	};
+
+	const onErrorSong = () => {
+		errorSong.play();
+	};
+
+	const onSuccessSong = () => {
+		successSong.play();
+		const answer = prompt('Continue listening?');
+		if (!answer) {
+			successSong.pause();
+		}
 	};
 
 	const onSuccess = (response, params, frequency) => {
@@ -71,9 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			setTimeout(() => { sendRequest(params, frequency) }, frequency);
 		} else if (response.error === '') {
 			pasteLog(response.message, 'success');
-			successSong.play();
+			onSuccessSong();
 		} else {
 			pasteLog(`${response.error}: ${response.message}`, 'error');
+			onErrorSong();
 		}
 	};
 
