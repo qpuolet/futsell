@@ -1,0 +1,100 @@
+body {
+	background: #001721;
+	font-family: sans-serif;
+	font-weight: normal;
+}
+
+main {
+	display: flex;
+}
+
+.futsell {
+	padding: 16px;
+}
+
+.futsell__item {
+	display: block;
+	margin-bottom: 16px
+}
+
+.futsell__item:last-child {
+	margin-bottom: 0;
+}
+
+.futsell__itemText {
+	display: block;
+	margin-bottom: 8px;
+	color: #fff;
+}
+
+.futsell__itemInput {
+	border-radius: 6px;
+	padding: 12px 16px;
+	color: #000;
+	border: 0;
+	font-size: 15px;
+	line-height: 21px;
+	box-sizing: border-box;
+	width: 300px;
+}
+
+.futsell__submit {
+	border: 0;
+	background: #006657;
+	font-size: 20px;
+	line-height: 32px;
+	padding: 12px 16px;
+	color: #fff;
+	box-sizing: border-box;
+	width: 300px;
+	border-radius: 6px;
+	text-align: center;
+	margin-top: 28px;
+}
+
+.logs {
+	margin-left: 100px;
+}
+
+.logs__requests {
+	color: #fff;
+	font-size: 21px;
+	line-height: 32px;
+	margin-bottom: 8px;
+}
+
+.logs__list {
+	height: 500px;
+	width: 400px;
+	padding: 16px;
+	background: #fff;
+	overflow-y: scroll;
+	border-radius: 12px;
+}
+
+.logs__item {
+	display: block;
+	margin-bottom: 8px;
+}
+
+.logs__item.--success {
+	color: #006657;
+	font-size: 40px;
+}
+
+.logs__item.--error {
+	color: red;
+}
+
+@media (max-width: 1024px) {
+	main {
+		flex-direction: column;
+	}
+
+	.logs {
+		margin: 40px 0 0 16px;
+	}
+}
+
+
+

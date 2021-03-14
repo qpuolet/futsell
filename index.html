@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Futsell</title>
+  <meta name="description" content="Futsell">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js" integrity="sha512-Hmp6qDy9imQmd15Ds1WQJ3uoyGCUz5myyr5ijainC1z+tP7wuXcze5ZZR3dF7+rkRALfNy7jcfgS5hH8wJ/2dQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<main>
+		<form class="futsell" id="futsellForm">
+			<div class="futsell__list">
+				<label class="futsell__item">
+					<span class="futsell__itemText">Enter PartnerId: </span>
+					<input class="futsell__itemInput" type="text" name="partnerId" placeholder="61938" value="61938" />
+				</label>
+				<label class="futsell__item">
+					<span class="futsell__itemText">Enter Secret Key: </span>
+					<input class="futsell__itemInput" type="text" name="secretKey" placeholder="024651e66523f7affffe6cd1267c5a5d" value="024651e66523f7affffe6cd1267c5a5d
+					" />
+				</label>
+				<label class="futsell__item">
+					<span class="futsell__itemText">Enter Requests Frequency: </span>
+					<input class="futsell__itemInput" type="number" min="1000" name="frequency" value="1000" />
+				</label>
+				<label class="futsell__item">
+					<span class="futsell__itemText">Select Sku Type: </span>
+					<select class="futsell__itemInput" name="sku">
+						<option selected value="FFA19PS4">FFA19PS4</option>
+						<option value="FFA19PCC">FFA19PCC</option>
+						<option value="FFA19XBO">FFA19XBO</option>
+					</select>
+				</label>
+				<label class="futsell__item">
+					<span class="futsell__itemText">Enter Min Price(optional): </span>
+					<input class="futsell__itemInput" type="number" placeholder="0" name="min_buy" min="0"/>
+				</label>
+				<label class="futsell__item">
+					<span class="futsell__itemText">Enter Max Price(optional): </span>
+					<input class="futsell__itemInput" type="number" placeholder="9999999999999" name="max_buy" min="0"/>
+				</label>
+			</div>
+			<button class="futsell__submit" type="submit" id="sendRequest">Send Request</button>
+		</form>
+		<div class="logs" id="logs">
+			<div class="logs__requests">
+				<span class="logs__requestsTitle">Requests Count: </span>
+				<span class="logs__requestsCounter">0</span>
+			</div>
+			<div class="logs__list"></div>
+		</div>
+	</main>
+	<audio id="myAudio">
+		<source src="public/sounds/champions.mp3" type="audio/mp3">
+		<source src="public/sounds/gong.wav" type="audio/wav">
+		Your browser does not support the audio element.
+	</audio>
+</body>
+</html>
