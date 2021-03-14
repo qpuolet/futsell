@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	const logs = document.querySelector('#logs');
 	const logsCounter = logs.querySelector('.logs__requestsCounter');
 	const logsList = logs.querySelector('.logs__list');
-	var gong = document.getElementById('myAudio');
+	var successSong = document.getElementById('myAudio');
 	let requestNumber = 0;
 	let errorCounter = 0;
 
@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			url,
 			xhrFields: {
 				withCredentials: true,
+                'Access-Control-Allow-Origin': '*',
+				mode: 'cors',
+				credentials: 'include',
 			},
 			success: (response) => {
 				onSuccess(response, params, frequency);
@@ -68,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			setTimeout(() => { sendRequest(params, frequency) }, frequency);
 		} else if (response.error === '') {
 			pasteLog(response.message, 'success');
-			gong.play();
+			successSong.play();
 		} else {
 			pasteLog(`${response.error}: ${response.message}`, 'error');
 		}
